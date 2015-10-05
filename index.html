@@ -128,8 +128,8 @@
         </div>
       </div>
       <footer class="footer">
-        <p>Developed by <a href="https://github.com/mayconrpgm" target="_blanck">Maycon Queiros</a>.</p>
-        <p>Found a bug or have a sugestion? Please, open an issue in the <a href="https://github.com/mayconrpgm/wf-mod-calc" target="_blanck">project page</a>.</p>
+        <p>Version 1.0.0. Developed by <a href="https://github.com/mayconrpgm" target="_blank">Maycon Queiros</a>.</p>
+        <p>Found a bug or have a sugestion? Please, open an issue in the <a href="https://github.com/mayconrpgm/wf-mod-calc" target="_blank">project page</a>.</p>
         <p>Warframe content and materials are trademarks and copyrights of Digital Extremes.</p>
       </footer>
     </div><!-- /.container -->
@@ -164,11 +164,14 @@
         var energyNeededLevelFive = Math.max((4 * rarity * Math.pow(2, 5)) - (4 * rarity * Math.pow(2, currentLevel)), 0);
         var energyNeededLevelTen = Math.max((4 * rarity * Math.pow(2, 10)) - (4 * rarity * Math.pow(2, currentLevel)), 0);
 
+        /*
         console.log(rarity);
         console.log(currentLevel);
         console.log(energyNeededNextLevel);
         console.log(energyNeededLevelFive);
         console.log(energyNeededLevelTen);
+        */
+        $("#nextLevelLabel").text("Next Level (Level " + (currentLevel + 1) +")")
 
         $("#nextLevelDuplicates").text(Math.ceil(energyNeededNextLevel / duplicateEnergy));
         $("#nextLevelSamePolarity").text(Math.ceil(energyNeededNextLevel / (samePolarityEnergy / 2)));
