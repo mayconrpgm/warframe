@@ -12,3 +12,16 @@ body {
 .footer p {
 	margin-bottom: 3px;
 }
+select {
+	width: 100%;
+}
+table {
+	width: 100%;
+}
+th {
+	background-color: gray;
+	text-align: center;
+}
+th, td {
+	border: 1px solid black;
+}
