@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Warframe Mod Upgrade Calculator</title>
+    <link rel="shortcut icon" href="https://n8k6e2y6.ssl.hwcdn.net/sites/default/files/favicon.ico" type="image/vnd.microsoft.icon" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -30,7 +31,7 @@
       <div class="row">
         <div class="col-md-6">
           <h4>Select the Mod Rarity</h4>
-          <select>
+          <select id="rarity">
               <option value="1">Common</option>
               <option value="2">Uncommon</option>
               <option value="3">Rare</option>
@@ -39,7 +40,7 @@
         </div>
         <div class="col-md-6">
           <h4>Select the Current Level</h4>
-          <select>
+          <select id="currentLevel">
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -58,22 +59,22 @@
           <div class="col-md-4">
             <table>
               <tr>
-                <th colspan="2">Next Level (L1)</td>
+                <th colspan="2" id="nextLevelLabel">Next Level (Level 1)</td>
               </tr>
               <tr>
                 <th>Mod Type</th>
                 <th>Amount</th>
               </tr>
               <tr>
-                <td>Type</td>
-                <td>0</td>
+                <td>Duplicates</td>
+                <td id="nextLevelDuplicates">0</td>
               </tr>
               <tr>
-                <td>Type</td>
-                <td>0</td>
+                <td>Same Polarity and Rarity</td>
+                <td id="nextLevelSamePolarity">0</td>
               </tr>
               <tr>
-                <td>Type</td>
+                <td id="nextLevelFusionCores">Fusion Cores (L5)</td>
                 <td>0</td>
               </tr>
             </table>
@@ -81,54 +82,54 @@
           <div class="col-md-4">
             <table>
               <tr>
-                <th colspan="2">Next Level (L1)</td>
+                <th colspan="2">Level 5</td>
               </tr>
               <tr>
                 <th>Mod Type</th>
                 <th>Amount</th>
               </tr>
               <tr>
-                <td>Type</td>
-                <td>0</td>
+                <td>Duplicates</td>
+                <td id="levelFiveDuplicates">0</td>
               </tr>
               <tr>
-                <td>Type</td>
-                <td>0</td>
+                <td>Same Polarity and Rarity</td>
+                <td id="levelFiveSamePolarity">0</td>
               </tr>
               <tr>
-                <td>Type</td>
-                <td>0</td>
+                <td>Fusion Cores (L5)</td>
+                <td id="levelFivelFusionCores">0</td>
               </tr>
             </table>
           </div>
           <div class="col-md-4">
             <table>
               <tr>
-                <th colspan="2">Next Level (L1)</td>
+                <th colspan="2">Level 10</td>
               </tr>
               <tr>
                 <th>Mod Type</th>
                 <th>Amount</th>
               </tr>
               <tr>
-                <td>Type</td>
-                <td>0</td>
+                <td>Duplicates</td>
+                <td id="levelTenDuplicates">0</td>
               </tr>
               <tr>
-                <td>Type</td>
-                <td>0</td>
+                <td>Same Polarity and Rarity</td>
+                <td id="levelTenSamePolarity">0</td>
               </tr>
               <tr>
-                <td>Type</td>
-                <td>0</td>
+                <td>Fusion Cores (L5)</td>
+                <td id="levelTenFusionCores">0</td>
               </tr>
             </table>
           </div>
         </div>
       </div>
       <footer class="footer">
-        <p>Developed by <a href="https://github.com/mayconrpgm">Maycon Queiros</a>.</p>
-        <p>Found a bug or have a sugestion? Please, open an issue in the <a href="https://github.com/mayconrpgm/wf-mod-calc">project page</a>.</p>
+        <p>Developed by <a href="https://github.com/mayconrpgm" target="_blanck">Maycon Queiros</a>.</p>
+        <p>Found a bug or have a sugestion? Please, open an issue in the <a href="https://github.com/mayconrpgm/wf-mod-calc" target="_blanck">project page</a>.</p>
         <p>Warframe content and materials are trademarks and copyrights of Digital Extremes.</p>
       </footer>
     </div><!-- /.container -->
@@ -136,5 +137,13 @@
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        var rarity = $("#rarity option:selected").val();
+        var currentLevel = $("#currentLevel option:selected").val();
+
+        console.log(rarity + " - " + currentLevel);
+      });
+    </script>
   </body>
 </html>
