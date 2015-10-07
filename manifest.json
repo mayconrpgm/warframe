@@ -18,7 +18,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "index.html",
-  "display": "standalone",
+  "start_url": "/wf-mod-calc/index.html",
+  "display": "browser",
   "orientation": "portrait"
 }
