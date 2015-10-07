@@ -19,6 +19,6 @@
     }
   ],
   "start_url": "/wf-mod-calc/index.html",
-  "display": "browser",
+  "display": "standalone",
   "orientation": "portrait"
 }
