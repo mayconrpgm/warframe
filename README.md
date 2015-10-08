@@ -1,3 +1,3 @@
-Warframe Mod Upgrade Calculator
+Warframe Mod Fusion Calculator
 
-http://mayconrpgm.github.io/wf-mod-calc
+http://mayconrpgm.github.io/warframe/
