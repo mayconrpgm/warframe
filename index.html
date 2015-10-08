@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Warframe Fusion (Mod Upgrade) Calculator - Lightweight and Mobile Friendly</title>
-    <meta name="description" content="Check how many mods or fusion cores would be needed to upgrade a mod.">
+    <title>Warframe Tools - Lightweight and Mobile Friendly</title>
+    <meta name="description" content="Tools to help the warframe player.">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/vnd.microsoft.icon" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-title" content="WF Mod Calc">
+    <meta name="apple-mobile-web-app-title" content="WF Tools">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-touch-fullscreen" content="yes">
@@ -42,108 +42,21 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Warframe Fusion Calculator</a>
+          <a class="navbar-brand" href="#">Warframe Tools</a>
         </div>
       </div>
     </nav>
 
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <h4>Select the Mod Rarity</h4>
-          <select id="rarity">
-              <option value="1">Common</option>
-              <option value="2">Uncommon</option>
-              <option value="3">Rare</option>
-              <option value="4">Legendary (Primed)</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <h4>Select the Current Level</h4>
-          <select id="currentLevel">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-          </select>
+        <div class="col-md-12">
+          <h1>Select the tool you want to use:</h1>
         </div>
       </div>
       <div class="starter-template">
         <div class="row">
-          <div class="col-md-4">
-            <table>
-              <tr>
-                <th colspan="2" id="nextLevelLabel">Next Level (Level 1)</th>
-              </tr>
-              <tr>
-                <th>Mod Type</th>
-                <th>Amount</th>
-              </tr>
-              <tr>
-                <td>Duplicates</td>
-                <td id="nextLevelDuplicates">0</td>
-              </tr>
-              <tr>
-                <td>Same Polarity and Rarity</td>
-                <td id="nextLevelSamePolarity">0</td>
-              </tr>
-              <tr>
-                <td>Fusion Cores (L5)</td>
-                <td id="nextLevelFusionCores">0</td>
-              </tr>
-            </table>
-          </div>
-          <div class="col-md-4">
-            <table>
-              <tr>
-                <th colspan="2">Level 5</th>
-              </tr>
-              <tr>
-                <th>Mod Type</th>
-                <th>Amount</th>
-              </tr>
-              <tr>
-                <td>Duplicates</td>
-                <td id="levelFiveDuplicates">0</td>
-              </tr>
-              <tr>
-                <td>Same Polarity and Rarity</td>
-                <td id="levelFiveSamePolarity">0</td>
-              </tr>
-              <tr>
-                <td>Fusion Cores (L5)</td>
-                <td id="levelFiveFusionCores">0</td>
-              </tr>
-            </table>
-          </div>
-          <div class="col-md-4">
-            <table>
-              <tr>
-                <th colspan="2">Level 10</th>
-              </tr>
-              <tr>
-                <th>Mod Type</th>
-                <th>Amount</th>
-              </tr>
-              <tr>
-                <td>Duplicates</td>
-                <td id="levelTenDuplicates">0</td>
-              </tr>
-              <tr>
-                <td>Same Polarity and Rarity</td>
-                <td id="levelTenSamePolarity">0</td>
-              </tr>
-              <tr>
-                <td>Fusion Cores (L5)</td>
-                <td id="levelTenFusionCores">0</td>
-              </tr>
-            </table>
+          <div class="col-md-12">
+            <a href="mod-fusion-calculator/index.html" class="btn btn-primary" role="button">Mod Fusion Calculator</a>
           </div>
         </div>
       </div>

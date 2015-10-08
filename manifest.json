@@ -1,6 +1,6 @@
 {
-  "short_name": "WF Mod Calc",
-  "name": "Warframe Fusion Calculator",
+  "short_name": "WF Tools",
+  "name": "Warframe Tools",
   "icons": [
     {
       "src": "img/android-launcher-icon-2x.png",
@@ -18,7 +18,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/wf-mod-calc/index.html",
+  "start_url": "/warframe/index.html",
   "display": "standalone",
   "orientation": "portrait"
 }
