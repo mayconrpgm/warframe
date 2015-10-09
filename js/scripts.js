@@ -19,29 +19,43 @@ function updateTables() {
     duplicateEnergy = 2 * rarity * 2;
     samePolarityEnergy = 2 * rarity * 2;
     rareFusionCoreEnergy = 62;
+    
+    $("#content").empty();
 
-    var energyNeededNextLevel = Math.max((4 * rarity * Math.pow(2, currentLevel + 1)) - (4 * rarity * Math.pow(2, currentLevel)), 0);
-    var energyNeededLevelFive = Math.max((4 * rarity * Math.pow(2, 5)) - (4 * rarity * Math.pow(2, currentLevel)), 0);
-    var energyNeededLevelTen = Math.max((4 * rarity * Math.pow(2, 10)) - (4 * rarity * Math.pow(2, currentLevel)), 0);
+    for (rank = currentLevel + 1; rank <= 10; rank++) {
+        var energyNeeded = Math.max((4 * rarity * Math.pow(2, rank)) - (4 * rarity * Math.pow(2, currentLevel)), 0);
+        
+        /*
+        console.log(energyNeeded);
+        console.log(Math.ceil(energyNeeded / duplicateEnergy));
+        console.log(Math.ceil(energyNeeded / (samePolarityEnergy / 2)));
+        console.log(Math.ceil(energyNeeded / (rareFusionCoreEnergy / 2)));
+        */
 
-    /*
-    console.log(rarity);
-    console.log(currentLevel);
-    console.log(energyNeededNextLevel);
-    console.log(energyNeededLevelFive);
-    console.log(energyNeededLevelTen);
-    */
-    $("#nextLevelLabel").text("Next Level (Level " + (currentLevel + 1) +")")
+        var tableHtml =   '<div class="col-md-12">' +
+          '<table> ' +
+            '<tr>' +
+              '<th colspan="2">Rank ' + rank + '</th>' +
+            '</tr>' +
+            '<tr>' +
+              '<th>Mod Type</th>' +
+              '<th>Amount</th>' +
+            '</tr>' +
+            '<tr>' +
+              '<td>Duplicates</td>' +
+              '<td>' + Math.ceil(energyNeeded / duplicateEnergy) + '</td>' +
+            '</tr>' +
+            '<tr>' +
+              '<td>Same Polarity and Rarity</td>' +
+              '<td>' + Math.ceil(energyNeeded / (samePolarityEnergy / 2)) + '</td>' +
+            '</tr>' +
+            '<tr>' +
+              '<td>Fusion Cores (R5)</td>' +
+              '<td>' + Math.ceil(energyNeeded / (rareFusionCoreEnergy / 2)) + '</td>' +
+            '</tr>' +
+          '</table>' +
+        '</div>';
 
-    $("#nextLevelDuplicates").text(Math.ceil(energyNeededNextLevel / duplicateEnergy));
-    $("#nextLevelSamePolarity").text(Math.ceil(energyNeededNextLevel / (samePolarityEnergy / 2)));
-    $("#nextLevelFusionCores").text(Math.ceil(energyNeededNextLevel / (rareFusionCoreEnergy / 2)));
-
-    $("#levelFiveDuplicates").text(Math.ceil(energyNeededLevelFive / duplicateEnergy));
-    $("#levelFiveSamePolarity").text(Math.ceil(energyNeededLevelFive / (samePolarityEnergy / 2)));
-    $("#levelFiveFusionCores").text(Math.ceil(energyNeededLevelFive / (rareFusionCoreEnergy / 2)));
-
-    $("#levelTenDuplicates").text(Math.ceil(energyNeededLevelTen / duplicateEnergy));
-    $("#levelTenSamePolarity").text(Math.ceil(energyNeededLevelTen / (samePolarityEnergy / 2)));
-    $("#levelTenFusionCores").text(Math.ceil(energyNeededLevelTen / (rareFusionCoreEnergy / 2)));
+        $("#content").append(tableHtml);
+    }
 }
