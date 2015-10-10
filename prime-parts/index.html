@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Warframe Tools - Lightweight and Mobile Friendly</title>
-    <meta name="description" content="Tools to help the warframe player.">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/vnd.microsoft.icon" />
+    <title>Warframe Prime Parts/Gear Location - Lightweight and Mobile Friendly</title>
+    <meta name="description" content="Find where you can find the prime parts you need in Warframe.">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/vnd.microsoft.icon" />
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
     <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-title" content="WF Tools">
+    <meta name="apple-mobile-web-app-title" content="WF Prime Parts">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-touch-fullscreen" content="yes">
@@ -42,7 +42,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Warframe Tools</a>
+          <a class="navbar-brand" href="#">Warframe Prime Parts</a>
         </div>
       </div>
     </nav>
@@ -50,29 +50,25 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>Select the tool you want to use:</h1>
+          <h4>Type the name of the part you want:</h4>
+          <input type="search" id="searchBox" value=""/>
         </div>
       </div>
-      <div class="starter-template">
-        <div class="row">
-          <div class="col-md-12">
-            <a href="mod-fusion-calculator/index.html" class="btn btn-primary" role="button">Mod Fusion Calculator</a>
-          </div>
-          <div class="col-md-12">
-            <a href="prime-parts/index.html" class="btn btn-primary" role="button">Prime Parts Location</a>
-          </div>
-        </div>
+      <div class="starter-template" id="content">
+        <table id="partsTable">
+
+        </table>
       </div>
       <footer class="footer">
         <p>Version 1.0.0. Developed by <a href="https://github.com/mayconrpgm" target="_blank">Maycon Queiros</a>.</p>
-        <p>Found a bug or have a suggestion? Please, open an issue in the <a href="https://github.com/mayconrpgm/wf-mod-calc" target="_blank">project page</a>.</p>
+        <p>Found a bug or have a suggestion? Please, open an issue in the <a href="https://github.com/mayconrpgm/warframe" target="_blank">project page</a>.</p>
         <p>Warframe content and materials are trademarks and copyrights of Digital Extremes.</p>
       </footer>
     </div><!-- /.container -->
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
   </body>
 </html>

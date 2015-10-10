@@ -1,0 +1,38 @@
+([a-z])\n(Rotation)
+\1 \2
+
+(OROKIN DERELICT|TOWER)
+"\1
+
+^(Rotation)
+"\1
+
+:$
+": [
+
+^("TOWER.*[^\[])$
+\1": [
+
+\n"
+],\n"
+
+^([a-z?].*)
+"\1",
+
+,\n \]
+\n]
+
+(Rotation)
+\U\1
+
+TOWER IV
+T4
+
+TOWER III
+T3
+
+TOWER II
+T2
+
+TOWER I
+T1

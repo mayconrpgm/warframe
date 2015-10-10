@@ -1,6 +1,6 @@
 {
-  "short_name": "WF Mod Calc",
-  "name": "Warframe Fusion Calculator",
+  "short_name": "WF Prime Parts",
+  "name": "Warframe Prime Parts",
   "icons": [
     {
       "src": "img/android-launcher-icon-2x.png",
@@ -18,7 +18,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/warframe/mod-fusion-calculator/index.html",
+  "start_url": "/warframe/prime-parts/index.html",
   "display": "standalone",
   "orientation": "portrait"
 }
