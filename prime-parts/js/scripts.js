@@ -1,13 +1,29 @@
-var partsJson = null;
+var partsByMission = null;
+var partsByName = {};
 var seachString = " ";
 var searchByMission = false;
 
 $(function() {
   $("#searchBox").focus();
 
-  $.getJSON( "parts.json", function(data) {
-     partsJson = data; 
-     updateTable();
+  $.getJSON("parts.json", function(data) {
+    partsByMission = data; 
+
+    $.each(partsByMission, function( k, v ) {
+      for (var i = 0; i < v.length; i++) {
+        if (!(v[i] in partsByName)) {
+          partsByName[v[i]] = new Array(k);
+        }
+        else {
+          partsByName[v[i]].push(k);
+        }
+      };
+    });
+
+    partsByMission = sortOnKeys(partsByMission);
+    partsByName = sortOnKeys(partsByName);
+
+    updateTable();
   });
 
   $("#searchBox").keyup(function() {
@@ -20,9 +36,8 @@ $(function() {
     $("#searchBox").val("");
     $("#searchBox").focus();
     seachString = " ";
-    updateTable();
-
     searchByMission = !searchByMission;
+    updateTable();
 
     if(searchByMission === true){
       $("#searchHeader").text("Type the name of the mission you want:");
@@ -39,26 +54,40 @@ $(function() {
 function updateTable(){
   $("#partsTable").empty();
 
-  $.each( partsJson, function( key, val ) {
+  partsObject = searchByMission ? partsByMission : partsByName;
+
+  $.each( partsObject, function( key, val ) {
     header = "";
     
-    if(key.indexOf(seachString.toUpperCase()) > -1 || searchByMission === false) {
+    if(key.indexOf(seachString.toUpperCase()) > -1) {
       header = "<tr><th>" + key.toUpperCase() + "</th></tr>";
     }
     
-    
-
     if (header !== "") {
       lines = "";
 
       for (var i = 0; i < val.length; i++) {
-        if (val[i].indexOf(seachString.toUpperCase()) > -1 || searchByMission === true) {
           lines += "<tr><td>" + val[i].toUpperCase() + "</td></tr>";
-        }
       };
       if(lines !== "") {
         $("#partsTable").append(header + lines);
       }
     }
   });
+}
+
+function sortOnKeys(dict) {
+
+    var sorted = [];
+    for(var key in dict) {
+        sorted[sorted.length] = key;
+    }
+    sorted.sort();
+
+    var tempDict = {};
+    for(var i = 0; i < sorted.length; i++) {
+        tempDict[sorted[i]] = dict[sorted[i]];
+    }
+
+    return tempDict;
 }
