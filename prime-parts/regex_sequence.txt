@@ -25,6 +25,9 @@
 (Rotation)
 \U\1
 
+(?<A>TOWER II DEFENSE)(?<B>([0-9\t\na-Z \(\)-:](?!TOWER))*)(?<C>Rotation B)
+$+{A}$+{B}$+{A} $+{C}
+
 TOWER IV
 T4
 
