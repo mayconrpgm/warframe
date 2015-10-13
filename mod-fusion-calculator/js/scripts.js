@@ -16,21 +16,20 @@ function updateTables() {
     var samePolarityEnergy = 0;
     var rareFusionCoreEnergy = 0;
 
-    duplicateEnergy = 2 * rarity * 2;
-    samePolarityEnergy = 2 * rarity * 2;
-    rareFusionCoreEnergy = 62;
+    modTypes = {
+      "Duplicates" : (2 * rarity * 2),
+      "Unranked Common Same Polarity Mod" : 2,
+      "Unranked Uncommon Same Polarity Mod" : 4,
+      "Unranked Rare Same Polarity Mod" : 6,
+      "Common Fusion Cores (R3)" : (11.8 / 2),
+      "Uncommon Fusion Cores (R5)" : (38 / 2),
+      "Rare Fusion Cores (R5)" : (62 / 2)
+    };
     
     $("#content").empty();
 
     for (rank = currentLevel + 1; rank <= 10; rank++) {
         var energyNeeded = Math.max((4 * rarity * Math.pow(2, rank)) - (4 * rarity * Math.pow(2, currentLevel)), 0);
-        
-        /*
-        console.log(energyNeeded);
-        console.log(Math.ceil(energyNeeded / duplicateEnergy));
-        console.log(Math.ceil(energyNeeded / (samePolarityEnergy / 2)));
-        console.log(Math.ceil(energyNeeded / (rareFusionCoreEnergy / 2)));
-        */
 
         var tableHtml =   '<div class="col-md-12">' +
           '<table> ' +
@@ -40,20 +39,16 @@ function updateTables() {
             '<tr>' +
               '<th>Mod Type</th>' +
               '<th>Amount</th>' +
-            '</tr>' +
-            '<tr>' +
-              '<td>Duplicates</td>' +
-              '<td>' + Math.ceil(energyNeeded / duplicateEnergy) + '</td>' +
-            '</tr>' +
-            '<tr>' +
-              '<td>Same Polarity and Rarity</td>' +
-              '<td>' + Math.ceil(energyNeeded / (samePolarityEnergy / 2)) + '</td>' +
-            '</tr>' +
-            '<tr>' +
-              '<td>Fusion Cores (R5)</td>' +
-              '<td>' + Math.ceil(energyNeeded / (rareFusionCoreEnergy / 2)) + '</td>' +
-            '</tr>' +
-          '</table>' +
+            '</tr>';
+
+        $.each(modTypes, function( k, v ) {
+          tableHtml += '<tr>' +
+            '<td>'+ k +'</td>' +
+            '<td>' + Math.ceil(energyNeeded / v) + '</td>' +
+          '</tr>';
+        });
+
+        tableHtml += '</table>' +
         '</div>';
 
         $("#content").append(tableHtml);
