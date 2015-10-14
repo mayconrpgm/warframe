@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+   <url>
+      <loc>http://mayconrpgm.github.io/warframe/</loc>
+      <changefreq>daily</changefreq>
+      <mobile:mobile/>
+   </url>
+   <url>
+      <loc>http://mayconrpgm.github.io/warframe/mod-fusion-calculator/index.html</loc>
+      <changefreq>daily</changefreq>
+      <mobile:mobile/>
+   </url>
+   <url>
+      <loc>http://mayconrpgm.github.io/warframe/prime-parts/index.html</loc>
+      <changefreq>daily</changefreq>
+      <mobile:mobile/>
+   </url>
+</urlset>
