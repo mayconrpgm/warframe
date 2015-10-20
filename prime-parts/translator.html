@@ -37,14 +37,39 @@
       $(function() {
         $.get("parts.json", function(data) {
           
-          data = data.replace(/"(.*) BLUEPRINT"/g, "\"DIAGRAMA DE $1\"");
           data = data.replace(/"(.*) STOCK"/g, "\"CORONHA DE $1\"");
           data = data.replace(/"(.*) BARREL"/g, "\"CANO DE $1\"");
           data = data.replace(/"(.*) BLADE"/g, "\"LAMINA DE $1\"");
           data = data.replace(/"(.*) HANDLE"/g, "\"CABO DE $1\"");
           data = data.replace(/"(.*) GRIP"/g, "\"EMPUNHADEIRA DE $1\"");
           data = data.replace(/"(.*) RECEIVER"/g, "\"RECEPTOR DE $1\"");
-          data = data.replace(/"(.*) SYSTEMS"/g, "\"SISTEMAS DE $1\"");
+          data = data.replace(/"(.*) SYSTEMS([ "])/g, "\"SISTEMAS DE $1$2");
+          data = data.replace(/"(.*) GAUNTLET"/g, "\"MANOPLA DE $1\"");
+          data = data.replace(/"(.*) STRING"/g, "\"CORDA DE $1\"");
+          data = data.replace(/"(.*) LINK"/g, "\"CONEXAO DE $1\"");
+          data = data.replace(/"(.*) STARS"/g, "\"ESTRELAS DE $1\"");
+          data = data.replace(/"(.*) CEREBRUM"/g, "\"CEREBRO DE $1\"");
+          data = data.replace(/"(.*) POUCH"/g, "\"CARTUCHEIRA DE $1\"");
+          data = data.replace(/"(.*) HELMET([ "])/g, "\"CAPACETE DE $1$2");
+          data = data.replace(/"(.*) CHASSIS([ "])/g, "\"CHASSI DE $1$2");
+          data = data.replace(/"(.*) CARAPACE"/g, "\"CARAPACA DE $1\"");
+          data = data.replace(/"(.*) HARNESS"/g, "\"ARREIOS DE $1\"");
+          data = data.replace(/"(.*) ORNAMENT"/g, "\"ORNAMENTO DE $1\"");
+          data = data.replace(/"(.*) UPPER LIMB"/g, "\"MEMBRO SUPERIOR DE $1\"");
+          data = data.replace(/"(.*) LOWER LIMB"/g, "\"MEMBRO INFERIOR DE $1\"");
+          data = data.replace(/"(.*) WINGS"/g, "\"ASAS DE $1\"");
+          data = data.replace(/"(.*) BAND"/g, "\"BANDA DE $1\"");
+          data = data.replace(/"(.*) BUCKLE"/g, "\"FIVELA DE $1\"");
+          data = data.replace(/"(.*) BLUEPRINT"/g, "\"DIAGRAMA DE $1\"");
+          data = data.replace(/"T(.) EXTERMINATE"/g, "\"EXTERMINIO T$1\"");
+          data = data.replace(/"T(.) CAPTURE"/g, "\"CAPTURA T$1\"");
+          data = data.replace(/"T(.) SABOTAGE"/g, "\"SABOTAGEM T$1\"");
+          data = data.replace(/"T(.) MOBILE DEFENSE"/g, "\"DEFESA MOVEL T$1\"");
+          data = data.replace(/"T(.) DEFENSE ROTATION (.)"/g, "\"DEFESA T$1 ROTACAO $2\"");
+          data = data.replace(/"T(.) SURVIVAL ROTATION (.)"/g, "\"SOBREVIVENCIA T$1 ROTACAO $2\"");
+          data = data.replace(/"T(.) INTERCEPTION ROTATION (.)"/g, "\"INTERCEPTACAO T$1 ROTACAO $2\"");
+          data = data.replace(/"OROKIN DERELICT DEFENSE ROTATION (.)"/g, "\"DEFESA OROKIN DERELICT ROTACAO $1\"");
+          data = data.replace(/"OROKIN DERELICT SURVIVAL ROTATION (.)"/g, "\"SOBREVIVENCIA OROKIN DERELICT ROTACAO $1\"");
 
           $("#content").text(data);
         }, 'text');

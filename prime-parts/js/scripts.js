@@ -2,11 +2,23 @@ var partsByMission = null;
 var partsByName = {};
 var seachString = " ";
 var searchByMission = false;
+var params = [], hash;
+var q = document.URL.split('?')[1];
+if(q != undefined){
+    q = q.split('&');
+    for(var i = 0; i < q.length; i++){
+        hash = q[i].split('=');
+        params.push(hash[1]);
+        params[hash[0]] = hash[1];
+    }
+}
 
 $(function() {
   $("#searchBox").focus();
 
-  $.getJSON("parts.json", function(data) {
+  jsonName = "parts." + params['lang'] + ".json";
+
+  $.getJSON(jsonName, function(data) {
     partsByMission = data; 
 
     $.each(partsByMission, function( k, v ) {
