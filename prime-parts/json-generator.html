@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Warframe Prime Parts/Gear Drop Location - Lightweight and Mobile Friendly</title>
+    <meta name="description" content="Find where you can find the prime parts you need in Warframe. Up-to-date with the 17.6 changes.">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/vnd.microsoft.icon" />
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-title" content="WF Prime Parts">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="img/icon.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <textarea id="raw-text" style="width:500px; height:500px;"></textarea>
+    <input type="button" id="button" value="generate" />
+    <textarea id="content" style="width:500px; height:500px;"></textarea>
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $("#button").click(function() {
+          var data = $("#raw-text").val();
+
+          data = data.replace(/\n\n/g, "\n");
+          data = data.replace(/  +/g, "");
+          data = data.replace(/"([A-Z])\n(Rotation)"/g, "$1 $2");
+          data = data.replace(/"(OROKIN DERELICT|TOWER)"/g, "\"$1");
+          data = data.replace(/"^(Rotation)"/g,  "\": [");
+          data = data.replace(/"^(\"TOWER.*[^\[])$"/g, "$1\": [");
+          data = data.replace(/"\n\""/g, "],\n\"");
+          
+
+          $("#content").val(data);
+        });
+
+
+
+        /*
+        $.get("parts.json", function(data) {
+          
+          data = data.replace(/"(.*) STOCK"/g, "\"CORONHA DE $1\"");
+          data = data.replace(/"(.*) BARREL"/g, "\"CANO DE $1\"");
+          data = data.replace(/"(.*) BLADE"/g, "\"LAMINA DE $1\"");
+          data = data.replace(/"(.*) HANDLE"/g, "\"CABO DE $1\"");
+          data = data.replace(/"(.*) GRIP"/g, "\"EMPUNHADEIRA DE $1\"");
+          data = data.replace(/"(.*) RECEIVER"/g, "\"RECEPTOR DE $1\"");
+          data = data.replace(/"(.*) SYSTEMS([ "])/g, "\"SISTEMAS DE $1$2");
+          data = data.replace(/"(.*) GAUNTLET"/g, "\"MANOPLA DE $1\"");
+          data = data.replace(/"(.*) STRING"/g, "\"CORDA DE $1\"");
+          data = data.replace(/"(.*) LINK"/g, "\"CONEXAO DE $1\"");
+          data = data.replace(/"(.*) STARS"/g, "\"ESTRELAS DE $1\"");
+          data = data.replace(/"(.*) CEREBRUM"/g, "\"CEREBRO DE $1\"");
+          data = data.replace(/"(.*) POUCH"/g, "\"CARTUCHEIRA DE $1\"");
+          data = data.replace(/"(.*) HELMET([ "])/g, "\"CAPACETE DE $1$2");
+          data = data.replace(/"(.*) CHASSIS([ "])/g, "\"CHASSI DE $1$2");
+          data = data.replace(/"(.*) CARAPACE"/g, "\"CARAPACA DE $1\"");
+          data = data.replace(/"(.*) HARNESS"/g, "\"ARREIOS DE $1\"");
+          data = data.replace(/"(.*) ORNAMENT"/g, "\"ORNAMENTO DE $1\"");
+          data = data.replace(/"(.*) UPPER LIMB"/g, "\"MEMBRO SUPERIOR DE $1\"");
+          data = data.replace(/"(.*) LOWER LIMB"/g, "\"MEMBRO INFERIOR DE $1\"");
+          data = data.replace(/"(.*) WINGS"/g, "\"ASAS DE $1\"");
+          data = data.replace(/"(.*) BAND"/g, "\"BANDA DE $1\"");
+          data = data.replace(/"(.*) BUCKLE"/g, "\"FIVELA DE $1\"");
+          data = data.replace(/"(.*) BLUEPRINT"/g, "\"DIAGRAMA DE $1\"");
+          data = data.replace(/"T(.) EXTERMINATE"/g, "\"EXTERMINIO T$1\"");
+          data = data.replace(/"T(.) CAPTURE"/g, "\"CAPTURA T$1\"");
+          data = data.replace(/"T(.) SABOTAGE"/g, "\"SABOTAGEM T$1\"");
+          data = data.replace(/"T(.) MOBILE DEFENSE"/g, "\"DEFESA MOVEL T$1\"");
+          data = data.replace(/"T(.) DEFENSE ROTATION (.)"/g, "\"DEFESA T$1 ROTACAO $2\"");
+          data = data.replace(/"T(.) SURVIVAL ROTATION (.)"/g, "\"SOBREVIVENCIA T$1 ROTACAO $2\"");
+          data = data.replace(/"T(.) INTERCEPTION ROTATION (.)"/g, "\"INTERCEPTACAO T$1 ROTACAO $2\"");
+          data = data.replace(/"OROKIN DERELICT DEFENSE ROTATION (.)"/g, "\"DEFESA OROKIN DERELICT ROTACAO $1\"");
+          data = data.replace(/"OROKIN DERELICT SURVIVAL ROTATION (.)"/g, "\"SOBREVIVENCIA OROKIN DERELICT ROTACAO $1\"");
+
+          $("#content").text(data);
+        }, 'text');
+        */
+      });
+    </script>    
+  </body>
+</html>
