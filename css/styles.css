@@ -39,3 +39,8 @@ input[type="text"], input[type="search"] {
 	width: 100%;
 	margin: 15px 0;
 }
+
+#updateNote {
+	text-align: center;
+	color: rgb(40, 96, 144);
+}
